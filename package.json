@@ -2,9 +2,10 @@
   "name": "mi-bot-whatsapp",
   "version": "1.0.0",
   "main": "main.js",
-  "scripts": {
-    "start": "electron ."
-  },
+ "scripts": {
+  "start": "node index.js"
+},
+
   "keywords": [],
   "author": "",
   "license": "ISC",
