@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Chat WhatsApp</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f4f4f4; }
+    .chat { width: 400px; margin: 50px auto; background: white; padding: 10px; border-radius: 10px; box-shadow: 0 0 5px rgba(0,0,0,0.3); max-height: 600px; overflow-y: auto; }
+    .msg { background: #dcf8c6; margin: 5px; padding: 8px; border-radius: 5px; }
+  </style>
+</head>
+<body>
+  <div class="chat" id="chat"></div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io();
+    const chat = document.getElementById("chat");
+
+    socket.on("whatsapp-message", (msg) => {
+      const div = document.createElement("div");
+      div.className = "msg";
+      div.textContent = msg;
+      chat.appendChild(div);
+      chat.scrollTop = chat.scrollHeight; // hace scroll al último mensaje
+    });
+  </script>
+</body>
+</html>
